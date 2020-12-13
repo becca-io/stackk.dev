@@ -1,22 +1,5 @@
-import NextAuth from 'next-auth';
+import NextAuth, { User } from 'next-auth';
 import Providers from 'next-auth/providers';
-
-export interface Session {
-  jwt: string;
-  user: {
-    name: string;
-    email: string;
-    image: string;
-  };
-  id: number;
-  expires: string;
-}
-
-export interface User {
-  jwt: string;
-  id: number;
-  username: string;
-}
 
 export interface Account {
   id: number;
@@ -48,12 +31,6 @@ const options = {
   },
   debug: true,
   callbacks: {
-    session: async (session: Session, user: User) => {
-      session.jwt = user.jwt;
-      session.id = user.id;
-
-      return Promise.resolve(session);
-    },
     jwt: async (token: Token, user: User, account: Account) => {
       const isSignIn = user ? true : false;
 
