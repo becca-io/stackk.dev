@@ -1,4 +1,7 @@
 export const Routes = {
-  메인: '/',
-  로그인: '/login',
+  Main: '/',
+  Login: '/login',
+  Resume: '/[userId]',
+  ResumeEdit: '/[userId]/edit',
+  Me: '/[userId]/me',
 };
