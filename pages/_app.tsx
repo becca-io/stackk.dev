@@ -9,6 +9,7 @@ import {
   ReactQueryErrorResetBoundary,
 } from 'react-query';
 import { nomralizeCss } from 'styles/normalizeCss';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const queryCache = new QueryCache({
   defaultConfig: {
@@ -30,10 +31,12 @@ export default function App({ Component, pageProps }: any) {
             }}
           >
             <ReactQueryCacheProvider queryCache={queryCache}>
-              <ModalProvider>
-                <Global styles={nomralizeCss} />
-                <Component {...pageProps} />
-              </ModalProvider>
+              <ChakraProvider>
+                <ModalProvider>
+                  <Global styles={nomralizeCss} />
+                  <Component {...pageProps} />
+                </ModalProvider>
+              </ChakraProvider>
             </ReactQueryCacheProvider>
           </ErrorBoundary>
         );
