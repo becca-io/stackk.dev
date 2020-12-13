@@ -10,6 +10,7 @@ import {
 } from 'react-query';
 import { nomralizeCss } from 'styles/normalizeCss';
 import { ChakraProvider } from '@chakra-ui/react';
+import Head from 'next/head';
 
 const queryCache = new QueryCache({
   defaultConfig: {
@@ -34,6 +35,9 @@ export default function App({ Component, pageProps }: any) {
               <ChakraProvider>
                 <ModalProvider>
                   <Global styles={nomralizeCss} />
+                  <Head>
+                    <title>Stackk.dev</title>
+                  </Head>
                   <Component {...pageProps} />
                 </ModalProvider>
               </ChakraProvider>
