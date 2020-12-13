@@ -1,14 +1,14 @@
 import { Global } from '@emotion/react';
+import CapturedError from 'components/errors/CapturedError';
+import ErrorBoundary from 'components/errors/ErrorBoundary';
 import { ModalProvider } from 'hooks/useModal';
 import React from 'react';
-import { nomralizeCss } from 'styles/normalizeCss';
 import {
   QueryCache,
   ReactQueryCacheProvider,
   ReactQueryErrorResetBoundary,
 } from 'react-query';
-import ErrorBoundary from 'components/errors/ErrorBoundary';
-import CapturedError from 'components/errors/CapturedError';
+import { nomralizeCss } from 'styles/normalizeCss';
 
 const queryCache = new QueryCache({
   defaultConfig: {
